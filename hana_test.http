@@ -1,0 +1,14 @@
+POST http://localhost:4004/odata/v4/user-validity/updateAssignment
+Content-Type: application/json
+
+{
+    "userID": "David",
+    "assignment": "Assigned"
+}
+
+# POST http://localhost:4004/odata/v4/username/username
+# Content-Type: application/json
+
+# {
+#     "name": "John"
+# }

@@ -1,0 +1,5 @@
+### // Check mail
+POST http://localhost:4004/odata/v4/mail/sendmail
+Content-Type: application/json
+
+

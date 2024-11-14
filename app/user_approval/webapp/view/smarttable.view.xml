@@ -1,0 +1,78 @@
+<mvc:View
+    controllerName="my.userapproval.controller.smarttable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:table="sap.ui.table">
+    <Page
+        title="User Validity Worklist">
+        <content>
+            <!-- <VBox fitContainer="true"> -->
+                <smartFilterBar:SmartFilterBar
+                    id="smartFilterBar"
+                    entitySet="UserValidityWithApproval"
+                    persistencyKey="SmartFilter_UserValidity"
+                    basicSearchFieldName="userID"
+                    enableBasicSearch="true"
+                    showGoOnFB="true"
+                    showFilterConfiguration="true">
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration key="userID" label="User ID" />
+                        <smartFilterBar:ControlConfiguration key="startDate" label="Start Date" />
+                        <smartFilterBar:ControlConfiguration key="endDate" label="End Date"/>
+                        <smartFilterBar:ControlConfiguration key="status" label="Status"/>
+                        <smartFilterBar:ControlConfiguration key="assignment" label="Assignment"/>
+                        <smartFilterBar:ControlConfiguration key="approver" label="Approver"/>
+                        <smartFilterBar:ControlConfiguration key="levelOfApproval" label="Level of Approval"/>
+                        <smartFilterBar:ControlConfiguration key="mailID" label="Mail ID"/>
+                    </smartFilterBar:controlConfiguration>
+                </smartFilterBar:SmartFilterBar>
+                <smartTable:SmartTable
+                    id="smartTable"
+                    entitySet="UserValidityWithApproval"
+                    smartFilterId="smartFilterBar"
+                    tableType="Table"
+                    enableExport="true"
+                    useVariantManagement="true"
+                    header="User Validity"
+                    showRowCount="true"
+                    beforeRebindTable="onBeforeRebindTable"
+                    placeToolbarInTable="true"
+                    enableAutoBinding="true"
+                    enableAutoColumnWidth="true"
+                    initiallyVisibleFields="userID,approver,levelOfApproval,startDate,endDate,status,assignment,mailID">
+                    <smartTable:customToolbar>
+                        <Toolbar>
+                            <ToolbarSpacer/>
+                            <Button 
+                            id="sendEmailButton"
+                            text="Send Email" 
+                            press="onSendEmail"
+                            enabled="false"/>
+                            <Button 
+                            id="editAssignmentButton"
+                            text="Edit Assignment" 
+                            press="onEditAssignment"
+                            enabled="false"/>
+                        </Toolbar>
+                    </smartTable:customToolbar>
+                    <table:Table
+                    selectionMode="Single"
+                    selectionBehavior="RowOnly">
+                    </table:Table>
+                </smartTable:SmartTable>
+            <!-- </VBox> -->
+        </content>
+    </Page>
+</mvc:View>
+
+
+
+
+
+
+
+
+
