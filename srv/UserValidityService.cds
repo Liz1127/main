@@ -28,6 +28,3 @@ service MailService {
     action sendmail(to: String, subject: String, text: String);
 }
 
-service username {
-    entity username as projection on my.user;
-}
